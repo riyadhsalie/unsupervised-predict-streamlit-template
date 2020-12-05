@@ -149,6 +149,7 @@ def collab_model(movie_list,top_n=10):
     # Instantiating and generating the count matrix
     count_vec = CountVectorizer()
     count_matrix = count_vec.fit_transform(data['keyWords'])
+    cosine_sim = cosine_similarity(count_matrix, count_matrix)
 
     indices = pd.Series(movies_df['title'])
     movie_ids = pred_movies(movie_list)
